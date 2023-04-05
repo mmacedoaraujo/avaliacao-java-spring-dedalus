@@ -25,15 +25,10 @@ public class SecurityConfig {
         UserDetails superUser = User.builder()
                 .username("admin")
                 .password(passwordEncoder().encode("admin"))
-                .roles("SUPERUSER", "USER")
-                .build();
-        UserDetails user = User.builder()
-                .username("user")
-                .password(passwordEncoder().encode("user"))
-                .roles("USER")
+                .roles("SUPERUSER")
                 .build();
 
-        return new InMemoryUserDetailsManager(superUser, user);
+        return new InMemoryUserDetailsManager(superUser);
     }
 
     @Bean
@@ -42,8 +37,8 @@ public class SecurityConfig {
                 .csrf().disable()
                 .cors().and()
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers(new AntPathRequestMatcher("/api/v1/users")).hasRole("USER")
-                        .requestMatchers(new AntPathRequestMatcher("/api/v1/users/all")).hasRole("USER")
+                        .requestMatchers(new AntPathRequestMatcher("/api/v1/users")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/api/v1/users/paginated")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/v1/users/**")).hasRole("SUPERUSER")
                         .anyRequest().authenticated()
                 )

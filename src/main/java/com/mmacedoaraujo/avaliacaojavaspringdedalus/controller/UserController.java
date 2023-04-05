@@ -32,7 +32,7 @@ public class UserController {
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
-    @GetMapping("/all")
+    @GetMapping("/paginated")
     @Cacheable("usersPage")
     public ResponseEntity<Page<User>> returnUsersRegisteredPageable(Pageable pageable) {
         Page<User> usersPage = service.returnAllUsersPageable(pageable);
