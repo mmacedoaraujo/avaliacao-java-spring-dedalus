@@ -6,6 +6,8 @@ import com.mmacedoaraujo.avaliacaojavaspringdedalus.mapper.UserMapper;
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.repository.UserRepository;
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.service.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +21,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> returnAllUsers() {
         return repository.findAll();
+    }
+
+    @Override
+    public Page<User> returnAllUsersPageable(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
     @Override

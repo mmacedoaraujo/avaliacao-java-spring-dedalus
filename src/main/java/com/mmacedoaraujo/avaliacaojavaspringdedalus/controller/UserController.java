@@ -3,6 +3,8 @@ package com.mmacedoaraujo.avaliacaojavaspringdedalus.controller;
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.domain.User;
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.service.serviceimpl.UserServiceImpl;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +22,12 @@ public class UserController {
     public ResponseEntity<List<User>> returnUsersRegistered() {
         List<User> users = service.returnAllUsers();
         return new ResponseEntity<>(users, HttpStatus.OK);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<Page<User>> returnUsersRegisteredPageable(Pageable pageable) {
+        Page<User> usersPage = service.returnAllUsersPageable(pageable);
+        return new ResponseEntity<>(usersPage, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
