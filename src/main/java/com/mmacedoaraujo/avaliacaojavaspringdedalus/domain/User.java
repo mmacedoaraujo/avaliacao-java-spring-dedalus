@@ -3,6 +3,7 @@ package com.mmacedoaraujo.avaliacaojavaspringdedalus.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
@@ -13,10 +14,10 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 @Table(name = "table_users")
-public class User {
+public class User implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String lastName;

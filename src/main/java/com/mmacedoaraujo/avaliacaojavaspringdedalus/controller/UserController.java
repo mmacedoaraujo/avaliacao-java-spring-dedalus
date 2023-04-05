@@ -3,6 +3,8 @@ package com.mmacedoaraujo.avaliacaojavaspringdedalus.controller;
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.domain.User;
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.service.serviceimpl.UserServiceImpl;
 import lombok.AllArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -19,25 +21,28 @@ public class UserController {
     private final UserServiceImpl service;
 
     @GetMapping
+    @Cacheable("users")
     public ResponseEntity<List<User>> returnUsersRegistered() {
         List<User> users = service.returnAllUsers();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
     @GetMapping("/all")
+    @Cacheable("usersPage")
     public ResponseEntity<Page<User>> returnUsersRegisteredPageable(Pageable pageable) {
         Page<User> usersPage = service.returnAllUsersPageable(pageable);
         return new ResponseEntity<>(usersPage, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
+    @Cacheable("userId")
     public ResponseEntity<User> returnUserById(@PathVariable Long id) {
         User userFoundById = service.findUserById(id);
-
         return new ResponseEntity<>(userFoundById, HttpStatus.OK);
     }
 
     @PostMapping("/addNewUser")
+    @CacheEvict(value = {"users", "usersPage"}, allEntries = true)
     public ResponseEntity<Long> addNewUser(@RequestBody User user) {
         Long newUserId = service.saveNewUser(user);
 
@@ -45,12 +50,14 @@ public class UserController {
     }
 
     @PutMapping("/updateUser/{id}")
+    @CacheEvict(value = {"users", "usersPage"}, allEntries = true)
     public ResponseEntity<Void> updateUserData(@RequestBody User user, @PathVariable Long id) {
         service.updateUser(user, id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @DeleteMapping("/deleteUser/{id}")
+    @CacheEvict(value = {"users", "usersPage"}, allEntries = true)
     public ResponseEntity<Void> removeUser(@PathVariable Long id) {
         service.deleteUser(id);
 

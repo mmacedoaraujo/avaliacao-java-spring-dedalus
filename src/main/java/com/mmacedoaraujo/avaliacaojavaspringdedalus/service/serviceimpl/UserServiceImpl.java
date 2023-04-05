@@ -6,6 +6,7 @@ import com.mmacedoaraujo.avaliacaojavaspringdedalus.mapper.UserMapper;
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.repository.UserRepository;
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.service.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
