@@ -1,7 +1,7 @@
 package com.mmacedoaraujo.avaliacaojavaspringdedalus.service.serviceimpl;
 
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.domain.User;
-import com.mmacedoaraujo.avaliacaojavaspringdedalus.exceptions.UserNotFoundException;
+import com.mmacedoaraujo.avaliacaojavaspringdedalus.exceptions.domain.UserNotFoundException;
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.repository.UserRepository;
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.util.UserCreator;
 import org.junit.jupiter.api.DisplayName;

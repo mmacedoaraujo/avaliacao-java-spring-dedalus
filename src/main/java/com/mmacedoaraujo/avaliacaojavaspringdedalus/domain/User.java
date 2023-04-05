@@ -1,5 +1,6 @@
 package com.mmacedoaraujo.avaliacaojavaspringdedalus.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,6 +22,7 @@ public class User implements Serializable {
     private Long id;
     private String name;
     private String lastName;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
     private String nationality;
 }

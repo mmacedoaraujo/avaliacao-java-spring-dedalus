@@ -1,4 +1,4 @@
-package com.mmacedoaraujo.avaliacaojavaspringdedalus.exceptions;
+package com.mmacedoaraujo.avaliacaojavaspringdedalus.exceptions.domain;
 
 public class UserNotFoundException extends RuntimeException {
 

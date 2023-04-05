@@ -1,7 +1,7 @@
 package com.mmacedoaraujo.avaliacaojavaspringdedalus.service.serviceimpl;
 
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.domain.User;
-import com.mmacedoaraujo.avaliacaojavaspringdedalus.exceptions.UserNotFoundException;
+import com.mmacedoaraujo.avaliacaojavaspringdedalus.exceptions.domain.UserNotFoundException;
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.mapper.UserMapper;
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.repository.UserRepository;
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.service.UserService;
@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findUserById(Long id) {
-        return repository.findById(id).orElseThrow(() -> new UserNotFoundException("Usuário não encontrado"));
+        return repository.findById(id).orElseThrow(() -> new UserNotFoundException(""));
     }
 
     @Override
