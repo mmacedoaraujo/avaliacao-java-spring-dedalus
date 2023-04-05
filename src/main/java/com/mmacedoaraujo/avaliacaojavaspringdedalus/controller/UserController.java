@@ -20,6 +20,11 @@ public class UserController {
 
     private final UserServiceImpl service;
 
+    @GetMapping("/hello")
+    public ResponseEntity<String> returnsHello() {
+        return new ResponseEntity<>("Hello World!", HttpStatus.OK);
+    }
+
     @GetMapping
     @Cacheable("users")
     public ResponseEntity<List<User>> returnUsersRegistered() {
