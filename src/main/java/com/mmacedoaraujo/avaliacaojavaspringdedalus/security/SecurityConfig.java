@@ -22,18 +22,18 @@ public class SecurityConfig {
 
     @Bean
     public InMemoryUserDetailsManager userDetailsService() {
-        UserDetails user1 = User.builder()
+        UserDetails superUser = User.builder()
                 .username("admin")
-                .password(passwordEncoder().encode("admin123"))
+                .password(passwordEncoder().encode("admin"))
                 .roles("SUPERUSER", "USER")
                 .build();
-        UserDetails user2 = User.builder()
-                .username("mmacedoaraujo")
-                .password(passwordEncoder().encode("password"))
+        UserDetails user = User.builder()
+                .username("user")
+                .password(passwordEncoder().encode("user"))
                 .roles("USER")
                 .build();
 
-        return new InMemoryUserDetailsManager(user1, user2);
+        return new InMemoryUserDetailsManager(superUser, user);
     }
 
     @Bean

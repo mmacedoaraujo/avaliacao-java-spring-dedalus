@@ -43,10 +43,10 @@ public class UserController {
 
     @PostMapping("/addNewUser")
     @CacheEvict(value = {"users", "usersPage"}, allEntries = true)
-    public ResponseEntity<Long> addNewUser(@RequestBody User user) {
-        Long newUserId = service.saveNewUser(user);
+    public ResponseEntity<User> addNewUser(@RequestBody User user) {
+        User newUser = service.saveNewUser(user);
 
-        return new ResponseEntity<>(newUserId, HttpStatus.CREATED);
+        return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
 
     @PutMapping("/updateUser/{id}")

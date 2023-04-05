@@ -6,7 +6,6 @@ import com.mmacedoaraujo.avaliacaojavaspringdedalus.mapper.UserMapper;
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.repository.UserRepository;
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.service.UserService;
 import lombok.AllArgsConstructor;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -35,8 +34,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Long saveNewUser(User user) {
-        return repository.save(user).getId();
+    public User saveNewUser(User user) {
+        return repository.save(user);
     }
 
     @Override
