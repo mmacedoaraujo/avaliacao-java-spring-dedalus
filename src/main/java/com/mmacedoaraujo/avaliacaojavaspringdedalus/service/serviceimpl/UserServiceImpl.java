@@ -32,8 +32,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUser(User user) {
-        User userFromDatabase = findUserById(user.getId());
+    public void updateUser(User user, Long id) {
+        User userFromDatabase = findUserById(id);
         User updatedUser = UserMapper.INSTANCE.updateUser(user, userFromDatabase);
         repository.save(updatedUser);
     }
