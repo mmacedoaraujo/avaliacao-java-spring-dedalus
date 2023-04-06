@@ -2,9 +2,11 @@ package com.mmacedoaraujo.avaliacaojavaspringdedalus.logging;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.hibernate.mapping.Join;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -30,5 +32,10 @@ public class LoggingAspect {
         log.info("Target class : " + joinPoint.getTarget().getClass().getName());
     }
 
-//    @AfterReturning(pointcut = "loggin")
+    @AfterReturning(pointcut = "loggingOperation()", returning = "result")
+    @Order(2)
+    public void logAfter(JoinPoint joinPoint, Object result) {
+        log.info("Exiting from method: " + joinPoint.getSignature().getName());
+        log.info("Return value: " + result);
+    }
 }
