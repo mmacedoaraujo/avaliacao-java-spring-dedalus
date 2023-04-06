@@ -2,8 +2,8 @@ package com.mmacedoaraujo.avaliacaojavaspringdedalus.controller;
 
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.domain.User;
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.service.serviceimpl.UserServiceImpl;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;

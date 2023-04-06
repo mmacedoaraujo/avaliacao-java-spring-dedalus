@@ -12,10 +12,12 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @AllArgsConstructor
-public class HttpResponse {
+public class HttpResponseValidation {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime timestamp;
     private int status;
     private String error;
     private String message;
+    private String missingFields;
+    private String fieldsMessages;
 }
