@@ -2,7 +2,6 @@ package com.mmacedoaraujo.avaliacaojavaspringdedalus.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -42,9 +41,13 @@ public class SecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/api/v1/users")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/v1/users/paginated")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/v1/users/**")).hasRole("SUPERUSER")
-                        .anyRequest().authenticated()
+                        .anyRequest()
+                        .authenticated()
                 )
-                .httpBasic(Customizer.withDefaults());
+                .formLogin()
+                .and()
+                .httpBasic();
+
         return http.build();
     }
 
