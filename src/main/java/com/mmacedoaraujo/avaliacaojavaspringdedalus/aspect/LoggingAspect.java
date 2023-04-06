@@ -48,4 +48,18 @@ public class LoggingAspect {
         log.error("An exception has been thrown in " + joinPoint.getSignature().getName() + "()");
         log.error("Cause " + e.getCause());
     }
+
+    @Around("loggingOperationService()")
+    @Order(4)
+    public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
+        log.info("The method " + joinPoint.getSignature().getName() + "() begins with " + Arrays.toString(joinPoint.getArgs()));
+        try {
+            Object result = joinPoint.proceed();
+            log.info("The method " + joinPoint.getSignature().getName() + "() ends with " + result);
+            return result;
+        } catch (IllegalArgumentException e) {
+            log.error("Illegal argument " + Arrays.toString(joinPoint.getArgs()) + " in " + joinPoint.getSignature().getName() + "()");
+            throw e;
+        }
+    }
 }
