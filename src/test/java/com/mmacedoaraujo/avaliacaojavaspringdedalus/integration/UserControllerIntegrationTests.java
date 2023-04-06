@@ -17,9 +17,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.annotation.DirtiesContext;
 
 import java.util.List;
 
@@ -27,6 +29,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureTestDatabase
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class UserControllerIntegrationTests {
 
     @Autowired
@@ -60,7 +63,7 @@ public class UserControllerIntegrationTests {
     }
 
     @Test
-    void returnUsersRegistered() {
+    void returnUsersRegisteredWithoutCredentials() {
         User userForComparison = UserCreator.createUserWithId("Teste", "Integração");
         repository.save(UserCreator.createUserWithId("Teste", "Integração"));
 
@@ -76,6 +79,13 @@ public class UserControllerIntegrationTests {
         assertEquals(userForComparison.getLastName(), usersPageNoAuth.getBody().get(0).getLastName());
         assertEquals(userForComparison.getId(), usersPageNoAuth.getBody().get(0).getId());
         assertEquals(HttpStatus.OK, usersPageNoAuth.getStatusCode());
+
+    }
+
+    @Test
+    void returnUsersRegisteredWithAdminCredentials() {
+        User userForComparison = UserCreator.createUserWithId("Teste", "Integração");
+        repository.save(UserCreator.createUserWithId("Teste", "Integração"));
 
         ResponseEntity<List<User>> usersPageRoleAdmin = testRestTemplateRoleAdmin.exchange("/api/v1/users", HttpMethod.GET, null,
                 new ParameterizedTypeReference<List<User>>() {
@@ -93,9 +103,10 @@ public class UserControllerIntegrationTests {
     }
 
     @Test
-    void returnUsersRegisteredPageable() {
+    void returnUsersRegisteredPageableWithoutCredentials() {
         User userForComparison = UserCreator.createUserWithId("Teste", "Integração");
         repository.save(UserCreator.createUserWithId("Teste", "Integração"));
+
         ResponseEntity<PageableResponse<User>> usersPageRoleUser = testRestTemplateNoAuth.exchange("/api/v1/users/paginated", HttpMethod.GET, null,
                 new ParameterizedTypeReference<PageableResponse<User>>() {
                 });
@@ -108,6 +119,12 @@ public class UserControllerIntegrationTests {
         assertEquals(userForComparison.getLastName(), usersPageRoleUser.getBody().toList().get(0).getLastName());
         assertEquals(userForComparison.getId(), usersPageRoleUser.getBody().toList().get(0).getId());
         assertEquals(HttpStatus.OK, usersPageRoleUser.getStatusCode());
+    }
+
+    @Test
+    void returnUsersRegisteredPageableWithAdminCredentials() {
+        User userForComparison = UserCreator.createUserWithId("Teste", "Integração");
+        repository.save(UserCreator.createUserWithId("Teste", "Integração"));
 
         ResponseEntity<PageableResponse<User>> usersPageRoleAdmin = testRestTemplateRoleAdmin.exchange("/api/v1/users/paginated", HttpMethod.GET, null,
                 new ParameterizedTypeReference<PageableResponse<User>>() {
@@ -160,7 +177,53 @@ public class UserControllerIntegrationTests {
         ResponseEntity<User> returnFromPostRequestWithoutBasicAuth = testRestTemplateNoAuth.postForEntity("/api/v1/users/addNewUser", userForComparison, User.class);
 
         assertEquals(HttpStatus.UNAUTHORIZED, returnFromPostRequestWithoutBasicAuth.getStatusCode());
-        assertEquals(null, returnFromPostRequestWithoutBasicAuth.getBody());
+        assertNull(returnFromPostRequestWithoutBasicAuth.getBody());
+    }
+
+
+    @Test
+    void updateUserDataWithoutCredentials() {
+        User userWithModifications = UserCreator.createUserWithId("Integration", "Test");
+        repository.save(UserCreator.createUserWithId("Teste", "Integração"));
+
+        ResponseEntity<Void> returnFromPutRequestWithoutCredentials = testRestTemplateNoAuth.exchange("/api/v1/users/updateUser/1",
+                HttpMethod.PUT,
+                new HttpEntity<>(userWithModifications),
+                Void.class);
+
+        assertEquals(HttpStatus.UNAUTHORIZED, returnFromPutRequestWithoutCredentials.getStatusCode());
+        assertNull(returnFromPutRequestWithoutCredentials.getBody());
+
+    }
+
+
+    @Test
+    void removeUserWithoutCredentials() {
+        User userAtDatabase = repository.save(UserCreator.createUserWithId("Teste", "Integração"));
+
+        ResponseEntity<Void> returnFromPutRequestWithoutCredentials = testRestTemplateNoAuth.exchange("/api/v1/users/deleteUser/1",
+                HttpMethod.DELETE,
+                null,
+                Void.class,
+                userAtDatabase.getId());
+
+        assertEquals(HttpStatus.UNAUTHORIZED, returnFromPutRequestWithoutCredentials.getStatusCode());
+        assertNull(returnFromPutRequestWithoutCredentials.getBody());
+
+    }
+
+    @Test
+    void removeUserWithAdminCredentials() {
+        User userAtDatabase = repository.save(UserCreator.createUserWithId("Teste", "Integração"));
+
+        ResponseEntity<Void> returnFromPutRequestWithoutCredentials = testRestTemplateRoleAdmin.exchange("/api/v1/users/deleteUser/1",
+                HttpMethod.DELETE,
+                null,
+                Void.class,
+                userAtDatabase.getId());
+
+        assertEquals(HttpStatus.NO_CONTENT, returnFromPutRequestWithoutCredentials.getStatusCode());
+
     }
 
     @Test
@@ -177,6 +240,17 @@ public class UserControllerIntegrationTests {
         assertEquals(HttpStatus.CREATED, returnFromPostRequestWithAdminCredentials.getStatusCode());
     }
 
+    @Test
+    void updateUserDataWithAdminCredentials() {
+        User userWithModifications = UserCreator.createUserWithId("Integration", "Test");
+        repository.save(UserCreator.createUserWithId("Teste", "Integração"));
 
+        ResponseEntity<Void> returnFromPutRequestWithoutCredentials = testRestTemplateRoleAdmin.exchange("/api/v1/users/updateUser/1",
+                HttpMethod.PUT,
+                new HttpEntity<>(userWithModifications),
+                Void.class);
+
+        assertEquals(HttpStatus.NO_CONTENT, returnFromPutRequestWithoutCredentials.getStatusCode());
+    }
 
 }
