@@ -11,7 +11,6 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 @RestControllerAdvice
 @EnableWebMvc

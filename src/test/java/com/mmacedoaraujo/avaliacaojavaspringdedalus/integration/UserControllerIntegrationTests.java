@@ -30,26 +30,17 @@ import static org.junit.jupiter.api.Assertions.*;
 public class UserControllerIntegrationTests {
 
     @Autowired
-    @Qualifier(value = "testRestTemplateRoleUser")
-    private TestRestTemplate testRestTemplateRoleUser;
-    @Autowired
     @Qualifier(value = "testRestTemplateRoleAdmin")
     private TestRestTemplate testRestTemplateRoleAdmin;
+    @Autowired
+    @Qualifier(value = "testRestTemplateNoAuth")
+    private TestRestTemplate testRestTemplateNoAuth;
     @Autowired
     private UserRepository repository;
 
     @TestConfiguration
     @Lazy
     static class Config {
-        @Bean(name = "testRestTemplateRoleUser")
-        public TestRestTemplate testRestTemplateUser(@Value("${local.server.port}") int port) {
-            RestTemplateBuilder restTemplateUser = new RestTemplateBuilder()
-                    .rootUri("http://localhost:" + port)
-                    .basicAuthentication("user", "user");
-
-            return new TestRestTemplate(restTemplateUser);
-        }
-
         @Bean(name = "testRestTemplateRoleAdmin")
         public TestRestTemplate testRestTemplateAdmin(@Value("${local.server.port}") int port) {
             RestTemplateBuilder restTemplateAdmin = new RestTemplateBuilder()
@@ -58,11 +49,34 @@ public class UserControllerIntegrationTests {
 
             return new TestRestTemplate(restTemplateAdmin);
         }
+
+        @Bean(name = "testRestTemplateNoAuth")
+        public TestRestTemplate testRestTemplateNoAuth(@Value("${local.server.port}") int port) {
+            RestTemplateBuilder restTemplateNoAuth = new RestTemplateBuilder()
+                    .rootUri("http://localhost:" + port);
+
+            return new TestRestTemplate(restTemplateNoAuth);
+        }
     }
 
     @Test
     void returnUsersRegistered() {
+        User userForComparison = UserCreator.createUserWithId("Teste", "Integração");
         repository.save(UserCreator.createUserWithId("Teste", "Integração"));
+
+        ResponseEntity<List<User>> usersPageNoAuth = testRestTemplateNoAuth.exchange("/api/v1/users", HttpMethod.GET, null,
+                new ParameterizedTypeReference<List<User>>() {
+                });
+
+        assertNotNull(usersPageNoAuth.getBody());
+        assertInstanceOf(List.class, usersPageNoAuth.getBody());
+        assertInstanceOf(User.class, usersPageNoAuth.getBody().get(0));
+        assertEquals(1, usersPageNoAuth.getBody().size());
+        assertEquals(userForComparison.getName(), usersPageNoAuth.getBody().get(0).getName());
+        assertEquals(userForComparison.getLastName(), usersPageNoAuth.getBody().get(0).getLastName());
+        assertEquals(userForComparison.getId(), usersPageNoAuth.getBody().get(0).getId());
+        assertEquals(HttpStatus.OK, usersPageNoAuth.getStatusCode());
+
         ResponseEntity<List<User>> usersPageRoleAdmin = testRestTemplateRoleAdmin.exchange("/api/v1/users", HttpMethod.GET, null,
                 new ParameterizedTypeReference<List<User>>() {
                 });
@@ -71,17 +85,18 @@ public class UserControllerIntegrationTests {
         assertInstanceOf(List.class, usersPageRoleAdmin.getBody());
         assertInstanceOf(User.class, usersPageRoleAdmin.getBody().get(0));
         assertEquals(1, usersPageRoleAdmin.getBody().size());
-        assertEquals("Teste", usersPageRoleAdmin.getBody().get(0).getName());
-        assertEquals("Integração", usersPageRoleAdmin.getBody().get(0).getLastName());
-        assertEquals(1L, usersPageRoleAdmin.getBody().get(0).getId());
+        assertEquals(userForComparison.getName(), usersPageRoleAdmin.getBody().get(0).getName());
+        assertEquals(userForComparison.getLastName(), usersPageRoleAdmin.getBody().get(0).getLastName());
+        assertEquals(userForComparison.getId(), usersPageRoleAdmin.getBody().get(0).getId());
         assertEquals(HttpStatus.OK, usersPageRoleAdmin.getStatusCode());
 
     }
 
     @Test
     void returnUsersRegisteredPageable() {
+        User userForComparison = UserCreator.createUserWithId("Teste", "Integração");
         repository.save(UserCreator.createUserWithId("Teste", "Integração"));
-        ResponseEntity<PageableResponse<User>> usersPageRoleUser = testRestTemplateRoleUser.exchange("/api/v1/users/all", HttpMethod.GET, null,
+        ResponseEntity<PageableResponse<User>> usersPageRoleUser = testRestTemplateNoAuth.exchange("/api/v1/users/paginated", HttpMethod.GET, null,
                 new ParameterizedTypeReference<PageableResponse<User>>() {
                 });
 
@@ -89,12 +104,12 @@ public class UserControllerIntegrationTests {
         assertInstanceOf(Page.class, usersPageRoleUser.getBody());
         assertInstanceOf(User.class, usersPageRoleUser.getBody().toList().get(0));
         assertEquals(1, usersPageRoleUser.getBody().toList().size());
-        assertEquals("Teste", usersPageRoleUser.getBody().toList().get(0).getName());
-        assertEquals("Integração", usersPageRoleUser.getBody().toList().get(0).getLastName());
-        assertEquals(1L, usersPageRoleUser.getBody().toList().get(0).getId());
+        assertEquals(userForComparison.getName(), usersPageRoleUser.getBody().toList().get(0).getName());
+        assertEquals(userForComparison.getLastName(), usersPageRoleUser.getBody().toList().get(0).getLastName());
+        assertEquals(userForComparison.getId(), usersPageRoleUser.getBody().toList().get(0).getId());
         assertEquals(HttpStatus.OK, usersPageRoleUser.getStatusCode());
 
-        ResponseEntity<PageableResponse<User>> usersPageRoleAdmin = testRestTemplateRoleAdmin.exchange("/api/v1/users/all", HttpMethod.GET, null,
+        ResponseEntity<PageableResponse<User>> usersPageRoleAdmin = testRestTemplateRoleAdmin.exchange("/api/v1/users/paginated", HttpMethod.GET, null,
                 new ParameterizedTypeReference<PageableResponse<User>>() {
                 });
 
@@ -102,10 +117,66 @@ public class UserControllerIntegrationTests {
         assertInstanceOf(Page.class, usersPageRoleAdmin.getBody());
         assertInstanceOf(User.class, usersPageRoleAdmin.getBody().toList().get(0));
         assertEquals(1, usersPageRoleAdmin.getBody().toList().size());
-        assertEquals("Teste", usersPageRoleAdmin.getBody().toList().get(0).getName());
-        assertEquals("Integração", usersPageRoleAdmin.getBody().toList().get(0).getLastName());
-        assertEquals(1L, usersPageRoleAdmin.getBody().toList().get(0).getId());
+        assertEquals(userForComparison.getName(), usersPageRoleAdmin.getBody().toList().get(0).getName());
+        assertEquals(userForComparison.getLastName(), usersPageRoleAdmin.getBody().toList().get(0).getLastName());
+        assertEquals(userForComparison.getId(), usersPageRoleAdmin.getBody().toList().get(0).getId());
         assertEquals(HttpStatus.OK, usersPageRoleAdmin.getStatusCode());
     }
+
+    @Test
+    void returnUserByIdWithoutBasicAuth() {
+        repository.save(UserCreator.createUserWithId("Teste", "Integração"));
+
+        ResponseEntity<User> userByIdNoAuth = testRestTemplateNoAuth.exchange("/api/v1/users/1", HttpMethod.GET, null,
+                new ParameterizedTypeReference<User>() {
+                });
+
+        assertEquals(HttpStatus.UNAUTHORIZED, userByIdNoAuth.getStatusCode());
+        assertEquals(null, userByIdNoAuth.getBody());
+    }
+
+    @Test
+    void returnUserById() {
+        User userForComparison = UserCreator.createUserWithId("Teste", "Integração");
+        repository.save(UserCreator.createUserWithId("Teste", "Integração"));
+
+        ResponseEntity<User> userByIdRoleAdmin = testRestTemplateRoleAdmin.exchange("/api/v1/users/1", HttpMethod.GET, null,
+                new ParameterizedTypeReference<User>() {
+                });
+
+        assertNotNull(userByIdRoleAdmin.getBody());
+        assertInstanceOf(User.class, userByIdRoleAdmin.getBody());
+        assertEquals(userForComparison.getName(), userByIdRoleAdmin.getBody().getName());
+        assertEquals(userForComparison.getLastName(), userByIdRoleAdmin.getBody().getLastName());
+        assertEquals(userForComparison.getBirthDate(), userByIdRoleAdmin.getBody().getBirthDate());
+        assertEquals(userForComparison.getId(), userByIdRoleAdmin.getBody().getId());
+        assertEquals(HttpStatus.OK, userByIdRoleAdmin.getStatusCode());
+    }
+
+    @Test
+    void addNewUserWithoutBasicAuth() {
+        User userForComparison = UserCreator.createUserWithId("Teste", "Integração");
+
+        ResponseEntity<User> returnFromPostRequestWithoutBasicAuth = testRestTemplateNoAuth.postForEntity("/api/v1/users/addNewUser", userForComparison, User.class);
+
+        assertEquals(HttpStatus.UNAUTHORIZED, returnFromPostRequestWithoutBasicAuth.getStatusCode());
+        assertEquals(null, returnFromPostRequestWithoutBasicAuth.getBody());
+    }
+
+    @Test
+    void addNewUserWithAdminCredentials() {
+        User userForComparison = UserCreator.createUserWithId("Teste", "Integração");
+
+        ResponseEntity<User> returnFromPostRequestWithAdminCredentials = testRestTemplateRoleAdmin.postForEntity("/api/v1/users/addNewUser", userForComparison, User.class);
+
+        assertNotNull(returnFromPostRequestWithAdminCredentials.getBody());
+        assertInstanceOf(User.class, returnFromPostRequestWithAdminCredentials.getBody());
+        assertEquals(userForComparison.getName(), returnFromPostRequestWithAdminCredentials.getBody().getName());
+        assertEquals(userForComparison.getLastName(), returnFromPostRequestWithAdminCredentials.getBody().getLastName());
+        assertEquals(userForComparison.getId(), returnFromPostRequestWithAdminCredentials.getBody().getId());
+        assertEquals(HttpStatus.CREATED, returnFromPostRequestWithAdminCredentials.getStatusCode());
+    }
+
+
 
 }
