@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="45db2276-1d50-4d62-ba65-7de8b77fca70" name="Changes" comment="user service implementation of base methods complete" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2Nyt0dqcP2L1BQZjTEBxKF8fZoN" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "C:/Workspace/gateway"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.mmacedoaraujo.avaliacaojavaspringdedalus.exceptions" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.mmacedoaraujo.avaliacaojavaspringdedalus.repository" />
+      <recent name="com.mmacedoaraujo.avaliacaojavaspringdedalus.controller" />
+      <recent name="com.mmacedoaraujo.avaliacaojavaspringdedalus.service.serviceimpl" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.mmacedoaraujo.avaliacaojavaspringdedalus.aspect" />
+      <recent name="com.mmacedoaraujo.avaliacaojavaspringdedalus.exceptions.domain" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.AvaliacaoJavaSpringDedalusApplication">
+    <configuration name="AvaliacaoJavaSpringDedalusApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.mmacedoaraujo.avaliacaojavaspringdedalus.AvaliacaoJavaSpringDedalusApplication" />
+      <module name="avaliacao-java-spring-dedalus" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mmacedoaraujo.avaliacaojavaspringdedalus.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AvaliacaoJavaSpringDedalusApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="avaliacao-java-spring-dedalus" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mmacedoaraujo.avaliacaojavaspringdedalus.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mmacedoaraujo.avaliacaojavaspringdedalus" />
+      <option name="MAIN_CLASS_NAME" value="com.mmacedoaraujo.avaliacaojavaspringdedalus.AvaliacaoJavaSpringDedalusApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="avaliacao-java-spring-dedalus" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mmacedoaraujo.avaliacaojavaspringdedalus.integration.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mmacedoaraujo.avaliacaojavaspringdedalus.integration" />
+      <option name="MAIN_CLASS_NAME" value="com.mmacedoaraujo.avaliacaojavaspringdedalus.integration.UserControllerIT" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="avaliacao-java-spring-dedalus" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mmacedoaraujo.avaliacaojavaspringdedalus.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mmacedoaraujo.avaliacaojavaspringdedalus.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.mmacedoaraujo.avaliacaojavaspringdedalus.controller.UserControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="avaliacao-java-spring-dedalus" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mmacedoaraujo.avaliacaojavaspringdedalus.service.serviceimpl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mmacedoaraujo.avaliacaojavaspringdedalus.service.serviceimpl" />
+      <option name="MAIN_CLASS_NAME" value="com.mmacedoaraujo.avaliacaojavaspringdedalus.service.serviceimpl.UserServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AvaliacaoJavaSpringDedalusApplication" />
+        <item itemvalue="JUnit.UserControllerIT" />
+        <item itemvalue="JUnit.UserControllerTest" />
+        <item itemvalue="JUnit.UserServiceImplTest" />
+        <item itemvalue="JUnit.AvaliacaoJavaSpringDedalusApplicationTests" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="45db2276-1d50-4d62-ba65-7de8b77fca70" name="Changes" comment="" />
+      <created>1680647930937</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1680647930937</updated>
+    </task>
+    <task id="LOCAL-00001" summary="created custom exception when user is not found on database">
+      <created>1680650970430</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680650970430</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added mapstruct mapper on project">
+      <created>1680651122142</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680651122142</updated>
+    </task>
+    <task id="LOCAL-00003" summary="user service implementation of base methods complete">
+      <created>1680651150751</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680651150751</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="created custom exception when user is not found on database" />
+    <MESSAGE value="added mapstruct mapper on project" />
+    <MESSAGE value="user service implementation of base methods complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="user service implementation of base methods complete" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mmacedoaraujo/avaliacaojavaspringdedalus/service/serviceimpl/UserServiceImpl.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mmacedoaraujo/avaliacaojavaspringdedalus/controller/UserController.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/com/mmacedoaraujo/avaliacaojavaspringdedalus/controller/UserControllerTest.java</url>
+          <line>93</line>
+          <properties class="com.mmacedoaraujo.avaliacaojavaspringdedalus.controller.UserControllerTest" method="addNewUser">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/avaliacao_java_spring_dedalus$AvaliacaoJavaSpringDedalusApplication.ic" NAME="AvaliacaoJavaSpringDedalusApplication Coverage Results" MODIFIED="1680806016982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.mmacedoaraujo.avaliacaojavaspringdedalus.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/avaliacao_java_spring_dedalus$UserControllerIntegrationTests.ic" NAME="UserControllerIntegrationTests Coverage Results" MODIFIED="1680805969204" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.mmacedoaraujo.avaliacaojavaspringdedalus.integration.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/avaliacao_java_spring_dedalus$UserControllerTest.ic" NAME="UserControllerTest Coverage Results" MODIFIED="1680805484254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.mmacedoaraujo.avaliacaojavaspringdedalus.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/avaliacao_java_spring_dedalus$UserServiceImplTest.ic" NAME="UserServiceImplTest Coverage Results" MODIFIED="1680805470141" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.mmacedoaraujo.avaliacaojavaspringdedalus.service.serviceimpl.*</FILTER>
+    </SUITE>
+  </component>
+</project>
