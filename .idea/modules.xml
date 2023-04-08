@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/avaliacao-java-spring-dedalus.iml" filepath="$PROJECT_DIR$/.idea/avaliacao-java-spring-dedalus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/discovery/discovery.iml" filepath="$PROJECT_DIR$/discovery/discovery.iml" />
       <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/users-api/user-api.iml" filepath="$PROJECT_DIR$/users-api/user-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/users-api-rabbitmq-consumer/user-api-rabbitmq-consumer.iml" filepath="$PROJECT_DIR$/users-api-rabbitmq-consumer/user-api-rabbitmq-consumer.iml" />

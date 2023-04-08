@@ -2,5 +2,7 @@ server:
   port: 8080
 
 spring:
-   main:
-     web-application-type: reactive
+  application:
+    name: registry
+  main:
+    web-application-type: reactive

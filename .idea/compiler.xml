@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="user-api-rabbitmq-consumer" />
         <module name="gateway" />
+        <module name="discovery" />
       </profile>
       <profile name="Annotation profile for mmacedoaraujo-microsservices" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -25,6 +26,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="avaliacao-java-spring-dedalus" target="17" />
+      <module name="discovery" target="17" />
       <module name="gateway" target="17" />
       <module name="user-api" target="17" />
       <module name="user-api-rabbitmq-consumer" target="17" />
@@ -32,6 +34,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="discovery" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="user-api" options="-parameters" />
       <module name="user-api-rabbitmq-consumer" options="-parameters" />
