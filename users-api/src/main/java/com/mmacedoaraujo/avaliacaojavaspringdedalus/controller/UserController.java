@@ -1,9 +1,10 @@
 package com.mmacedoaraujo.avaliacaojavaspringdedalus.controller;
 
+import com.mmacedoaraujo.avaliacaojavaspringdedalus.config.RabbitMQConfig;
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.domain.User;
 import com.mmacedoaraujo.avaliacaojavaspringdedalus.service.serviceimpl.UserServiceImpl;
-import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
@@ -20,6 +21,8 @@ import java.util.List;
 public class UserController {
 
     private final UserServiceImpl service;
+
+    private final RabbitTemplate template;
 
     @GetMapping("/hello")
     public ResponseEntity<String> returnsHello() {
@@ -51,6 +54,7 @@ public class UserController {
     @CacheEvict(value = {"users", "usersPage"}, allEntries = true)
     public ResponseEntity<User> addNewUser(@RequestBody User user) {
         User newUser = service.saveNewUser(user);
+        template.convertAndSend(RabbitMQConfig.EXCHANGE, RabbitMQConfig.USER_ROUTING_KEY, newUser);
 
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }

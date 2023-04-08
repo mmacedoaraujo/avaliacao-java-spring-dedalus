@@ -1,4 +1,4 @@
-package com.mmacedoaraujo.avaliacaojavaspringdedalus.security;
+package com.mmacedoaraujo.avaliacaojavaspringdedalus.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

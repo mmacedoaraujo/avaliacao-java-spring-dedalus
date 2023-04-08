@@ -33,6 +33,10 @@ public class GatewayConfig {
                         .filters(filter -> filter.rewritePath("/updateUser/(?<id>.*)", "/api/v1/users/updateUser/${id}"))
                         .uri(USERS_API_URI)
                 )
+                .route("removeUser", route -> route.path("/deleteUser/**")
+                        .filters(filter -> filter.rewritePath("/deleteUser/(?<id>.*)", "/api/v1/users/deleteUser/${id}"))
+                        .uri(USERS_API_URI)
+                )
                 .build();
     }
 }
