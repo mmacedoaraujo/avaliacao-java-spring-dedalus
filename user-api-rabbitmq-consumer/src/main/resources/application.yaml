@@ -1,0 +1,6 @@
+server:
+  port: 8082
+
+spring:
+  rabbitmq:
+    addresses: ${CLOUDAMQP_URL}
