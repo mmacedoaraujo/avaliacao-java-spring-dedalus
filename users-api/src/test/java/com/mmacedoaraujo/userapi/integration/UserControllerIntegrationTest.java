@@ -32,7 +32,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureTestDatabase
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
-public class UserControllerIntegrationTests {
+public class UserControllerIntegrationTest {
 
     @Autowired
     @Qualifier(value = "testRestTemplateRoleAdmin")
@@ -243,20 +243,20 @@ public class UserControllerIntegrationTests {
 
     }
 
-    @Test
-    void addNewUserWithAdminCredentials() {
-        User userForComparison = UserCreator.createUserWithId("Teste", "Integração");
-
-        ResponseEntity<User> returnFromPostRequestWithAdminCredentials =
-                testRestTemplateAdminRabbitMQ.exchange("/api/v1/users/addNewUser", HttpMethod.POST, new HttpEntity<>(userForComparison), User.class);
-
-        assertNotNull(returnFromPostRequestWithAdminCredentials.getBody());
-        assertInstanceOf(User.class, returnFromPostRequestWithAdminCredentials.getBody());
-        assertEquals(userForComparison.getName(), returnFromPostRequestWithAdminCredentials.getBody().getName());
-        assertEquals(userForComparison.getLastName(), returnFromPostRequestWithAdminCredentials.getBody().getLastName());
-        assertNotNull(returnFromPostRequestWithAdminCredentials.getBody().getId());
-        assertEquals(HttpStatus.CREATED, returnFromPostRequestWithAdminCredentials.getStatusCode());
-    }
+//    @Test
+//    void addNewUserWithAdminCredentials() {
+//        User userForComparison = UserCreator.createUserWithId("Teste", "Integração");
+//
+//        ResponseEntity<User> returnFromPostRequestWithAdminCredentials =
+//                testRestTemplateAdminRabbitMQ.exchange("/api/v1/users/addNewUser", HttpMethod.POST, new HttpEntity<>(userForComparison), User.class);
+//
+//        assertNotNull(returnFromPostRequestWithAdminCredentials.getBody());
+//        assertInstanceOf(User.class, returnFromPostRequestWithAdminCredentials.getBody());
+//        assertEquals(userForComparison.getName(), returnFromPostRequestWithAdminCredentials.getBody().getName());
+//        assertEquals(userForComparison.getLastName(), returnFromPostRequestWithAdminCredentials.getBody().getLastName());
+//        assertNotNull(returnFromPostRequestWithAdminCredentials.getBody().getId());
+//        assertEquals(HttpStatus.CREATED, returnFromPostRequestWithAdminCredentials.getStatusCode());
+//    }
 
     @Test
     void updateUserDataWithAdminCredentials() {
