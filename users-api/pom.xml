@@ -10,8 +10,6 @@
     </parent>
     <artifactId>user-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>avaliacao-java-spring-dedalus</name>
-    <description>Demo project for Spring Boot</description>
     <properties>
         <start-class>com.mmacedoaraujo.userapi.UserApiApplication</start-class>
         <java.version>17</java.version>
@@ -27,6 +25,11 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
     </dependencies>
 
