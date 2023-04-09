@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class GatewayConfig {
 
-    private static final String USERS_API_URI = "http://localhost:8081";
+    private static final String USERS_API_URI = "lb://users-api";
 
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {

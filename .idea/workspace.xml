@@ -5,18 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf27bc6a-f90d-4796-8139-4762b80680ed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_woodstox_woodstox_core_6_2_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_eureka_client_4_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discovery/src/main/resources/banner.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_gateway_unknown.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_eureka_client_unknown.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_eureka_server_unknown.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/src/main/resources/banner.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users-api/src/main/resources/banner.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discovery/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/discovery/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discovery/src/main/java/com/mmacedoaraujo/discovery/DiscoveryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/discovery/src/main/java/com/mmacedoaraujo/discovery/DiscoveryApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discovery/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/discovery/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discovery/src/test/java/com/mmacedoaraujo/discovery/DiscoveryApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/discovery/src/test/java/com/mmacedoaraujo/discovery/DiscoveryApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/mmacedoaraujo/gateway/config/GatewayConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/mmacedoaraujo/gateway/config/GatewayConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/users-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users-api/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/users-api/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +56,7 @@
       <recent name="C:\Workspace\avaliacao-java-spring-dedalus\discovery\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UserApiApplication">
+  <component name="RunManager" selected="Application.UserApiRabbitmqConsumerApplication">
     <configuration name="DiscoveryApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.mmacedoaraujo.discovery.DiscoveryApplication" />
       <module name="discovery" />
@@ -148,8 +147,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DiscoveryApplication" />
         <item itemvalue="Application.GatewayApplication" />
+        <item itemvalue="Application.DiscoveryApplication" />
         <item itemvalue="JUnit.UserControllerTest" />
         <item itemvalue="JUnit.UserServiceImplTest" />
       </list>
