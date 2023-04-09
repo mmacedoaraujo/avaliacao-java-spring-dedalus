@@ -35,7 +35,8 @@ public class SecurityConfig {
     @Bean
     SecurityWebFilterChain securityWebFilterChain(final ServerHttpSecurity http) {
         http.authorizeExchange(exchanges -> {
-            exchanges.pathMatchers("/users").permitAll()
+            exchanges.pathMatchers("/eureka").permitAll()
+                    .pathMatchers("/users").permitAll()
                     .pathMatchers("/users/paginated").permitAll()
                     .pathMatchers("/users/**").hasRole("SUPERUSER")
                     .anyExchange()
