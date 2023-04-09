@@ -13,6 +13,14 @@ public class GatewayConfig {
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
+                .route("discoveryServer", route -> route.path("/eureka")
+                        .filters(filter -> filter.rewritePath("/eureka", "/"))
+                        .uri("http://localhost:8083")
+                )
+                .route("discoveryServerStatic", route -> route.path("/eureka/**")
+                        .filters(filter -> filter.rewritePath("/eureka/(?<static>.*)", "/eureka/${static}"))
+                        .uri("http://localhost:8083")
+                )
                 .route("returnUsersRegistered", route -> route.path("/users")
                         .filters(filter -> filter.rewritePath("/users", "/api/v1/users"))
                         .uri(USERS_API_URI)
