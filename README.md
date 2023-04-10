@@ -84,6 +84,8 @@ password: admin
 * MapStruct
 * JUnit
 * Swagger
+* Docker
+* Jib
 
 
 
