@@ -77,6 +77,12 @@ username: admin
 password: admin
 ```
 
+## Mensageria
+
+No projeto, adicionei uma implementação básica de mensageria com o RabbitMQ. Configurei o serviço user-api como "producer" e user-api-rabbitmq-consumer como "consumer", onde sempre que um novo usuário for cadastrado na api de usários, a entidade salva será enviada para a fila e consumida no serviço configurado como consumer, gerando apenas um 'System.out.println' com as informações, como exemplificado na imagem abaixo: 
+
+![](https://user-images.githubusercontent.com/103322548/230941777-a96b0f70-819f-42e2-94e9-1f7e0c68d603.png)
+
 ## Tecnologias utilizadas
 
 * Java 17
