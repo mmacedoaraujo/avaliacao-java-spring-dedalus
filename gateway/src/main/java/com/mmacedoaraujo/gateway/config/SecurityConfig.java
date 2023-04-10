@@ -35,7 +35,10 @@ public class SecurityConfig {
     @Bean
     SecurityWebFilterChain securityWebFilterChain(final ServerHttpSecurity http) {
         http.authorizeExchange(exchanges -> {
-            exchanges.pathMatchers("/eureka").permitAll()
+            exchanges.pathMatchers("/eureka/**").permitAll()
+                    .pathMatchers("/user-api-swagger").permitAll()
+                    .pathMatchers("/swagger-ui/**").permitAll()
+                    .pathMatchers("/v3/api-docs/**").permitAll()
                     .pathMatchers("/api/v1/users").permitAll()
                     .pathMatchers("/api/v1/users/paginated").permitAll()
                     .pathMatchers("/api/v1/users/**").hasRole("SUPERUSER")
