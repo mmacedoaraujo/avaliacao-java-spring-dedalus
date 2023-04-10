@@ -56,8 +56,35 @@ http://localhost:8080
 
 Para acessar o swagger:
 
-```sh
-http://localhost:8080/user-api-swagger
-```
+## Como rodar o projeto
+
+Endpoints:
 
 ![](https://user-images.githubusercontent.com/103322548/230923062-20423445-75f5-4029-b4ca-b7fd0192e54a.png)
+
+Alguns endpoints irão necessitar de autenticação básica, basta usar:
+
+```sh
+username: admin
+password: admin
+```
+
+## Tecnologias utilizadas
+
+* Java 17
+* Spring Boot
+* Spring Cloud Gateway
+* Spring Security
+* Spring Cache
+* AspectJ
+* RabbitMQ
+* Eureka Server and Client
+* H2 Database
+* Lombok
+* MapStruct
+* JUnit
+* Swagger
+
+
+
+
