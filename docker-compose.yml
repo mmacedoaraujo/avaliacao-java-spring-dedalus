@@ -15,6 +15,8 @@ services:
     pull_policy: always
     ports:
       - "8080:8080"
+    depends_on:
+      - discovery-server
 
 ## User-API
   user-api:
@@ -25,6 +27,8 @@ services:
       - "8081:8081"
     environment:
       - CLOUDAMQP_URL=amqps://nslkctjt:6MkztmExpnZWOgkifKnD4cdEME1ytNUE@jackal.rmq.cloudamqp.com/nslkctjt
+    depends_on:
+      - discovery-server
 
 ## User-API-RabbitMQ-Consumer
   user-api-rabbitmq-consumer:
@@ -35,3 +39,5 @@ services:
       - "8082:8082"
     environment:
       - CLOUDAMQP_URL=amqps://nslkctjt:6MkztmExpnZWOgkifKnD4cdEME1ytNUE@jackal.rmq.cloudamqp.com/nslkctjt
+    depends_on:
+      - discovery-server
