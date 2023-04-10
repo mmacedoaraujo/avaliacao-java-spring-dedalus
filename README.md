@@ -83,6 +83,35 @@ No projeto, adicionei uma implementação básica de mensageria com o RabbitMQ. 
 
 ![](https://user-images.githubusercontent.com/103322548/230941777-a96b0f70-819f-42e2-94e9-1f7e0c68d603.png)
 
+## Logging
+
+Utilizei o AspectJ para realizar logging no serviço de usuários, fazendo logging das camadas controller e service.
+
+Ao salvar um novo usuário temos o seguinte retorno:
+
+![](https://user-images.githubusercontent.com/103322548/230944345-c676bd9e-b054-4ac8-988f-d1940b348c00.png)
+
+Caso haja alguma exceção na camada de serviços teremos:
+
+![](https://user-images.githubusercontent.com/103322548/230944349-bdbf8d7c-7a28-4461-b085-424efa2f447f.png)
+
+Implementação do logging ao acionar um método na camada de controller:
+
+![](https://user-images.githubusercontent.com/103322548/230944336-906939a3-5a64-492c-91b1-7ef68480f103.png)
+
+Implementação do logging do retorno da requisição na camada de controller:
+
+![](https://user-images.githubusercontent.com/103322548/230944338-35644525-496c-4f84-b212-70320116efbe.png)
+
+Implementação do logging de exceções na camada de serviços: 
+
+![](https://user-images.githubusercontent.com/103322548/230944340-b4848dc3-8f14-41c5-a846-a3e1c737a765.png)
+
+Implementação do logging ao acionar métodos na camada de serviços: 
+
+![](https://user-images.githubusercontent.com/103322548/230944342-5cceb3c2-399e-4ab2-b4c4-84ff97d51c8d.png)
+
+
 ## Tecnologias utilizadas
 
 * Java 17
