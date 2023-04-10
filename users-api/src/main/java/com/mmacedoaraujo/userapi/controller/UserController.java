@@ -32,14 +32,14 @@ public class UserController {
     private final RabbitTemplate template;
 
     @GetMapping("/hello")
-    @Operation(summary = "Simply return 'Hello World!'")
+    @Operation(summary = "Simply return 'Hello World!'", tags = "User")
     public ResponseEntity<String> returnsHello() {
         return new ResponseEntity<>("Hello World!", HttpStatus.OK);
     }
 
     @GetMapping
     @Cacheable("users")
-    @Operation(summary = "List all users", description = "Returns a list of all users on database. Requires no authentication.")
+    @Operation(summary = "List all users", description = "Returns a list of all users on database. Requires no authentication.", tags = "User")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Success, the service was able to retrieve users from database",
                     content = {@Content(mediaType = "application/json")}),
@@ -53,7 +53,7 @@ public class UserController {
 
     @GetMapping("/paginated")
     @Cacheable("usersPage")
-    @Operation(summary = "List all users, but pageable", description = "Returns a page of all users on database. Requires no authentication.")
+    @Operation(summary = "List all users, but pageable", description = "Returns a page of all users on database. Requires no authentication.", tags = "User")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Found users",
                     content = {@Content(mediaType = "application/json")}),
@@ -68,7 +68,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     @Cacheable("userId")
-    @Operation(summary = "Search for an user based on it's id", description = "Return an user based on it's registered id. Requires authentication.")
+    @Operation(summary = "Search for an user based on it's id", description = "Return an user based on it's registered id. Requires authentication.", tags = "User")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Found user",
                     content = {@Content(mediaType = "application/json")}),
@@ -84,7 +84,7 @@ public class UserController {
 
     @PostMapping("/addNewUser")
     @CacheEvict(value = {"users", "usersPage"}, allEntries = true)
-    @Operation(summary = "Add new user", description = "Saves an user at database. Requires authentication.")
+    @Operation(summary = "Add new user", description = "Saves an user at database. Requires authentication.", tags = "User")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Success, user it's now registered at database",
                     content = {@Content(mediaType = "application/json")}),
@@ -101,7 +101,7 @@ public class UserController {
     @PutMapping("/updateUser/{id}")
     @CacheEvict(value = {"users", "usersPage"}, allEntries = true)
     @Operation(summary = "Update user's information on database",
-            description = "At this endpoint we can pass a complete body for update or only desired fields, if the service can find an user by the supplied id, it will be updated. This endpoint requires authentication.")
+            description = "At this endpoint we can pass a complete body for update or only desired fields, if the service can find an user by the supplied id, it will be updated. This endpoint requires authentication.", tags = "User")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "Success, user's infos were successfuly updated",
                     content = {@Content(mediaType = "application/json")}),
@@ -118,7 +118,7 @@ public class UserController {
     @DeleteMapping("/deleteUser/{id}")
     @CacheEvict(value = {"users", "usersPage"}, allEntries = true)
     @Operation(summary = "Delete user's at database",
-            description = "If an user successfully matches the supplied id, it will be deleted. This endpoint requires authentication.")
+            description = "If an user successfully matches the supplied id, it will be deleted. This endpoint requires authentication.", tags = "User")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "Success, user's infos were successfuly updated",
                     content = {@Content(mediaType = "application/json")}),
