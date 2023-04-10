@@ -1,0 +1,37 @@
+version: '3.7'
+services:
+## Eureka Server
+  discovery-server:
+    image: mmacedoaraujo/discovery:latest
+    container_name: discovery-server
+    pull_policy: always
+    ports:
+      - "8083:8083"
+
+## API Gateway
+  api-gateway:
+    image: mmacedoaraujo/gateway:latest
+    container_name: api-gateway
+    pull_policy: always
+    ports:
+      - "8080:8080"
+
+## User-API
+  user-api:
+    image: mmacedoaraujo/user-api:latest
+    container_name: user-api
+    pull_policy: always
+    ports:
+      - "8081:8081"
+    environment:
+      - CLOUDAMQP_URL=amqps://nslkctjt:6MkztmExpnZWOgkifKnD4cdEME1ytNUE@jackal.rmq.cloudamqp.com/nslkctjt
+
+## User-API-RabbitMQ-Consumer
+  user-api-rabbitmq-consumer:
+    image: mmacedoaraujo/user-api-rabbitmq-consumer:latest
+    container_name: user-api-rabbitmq-consumer
+    pull_policy: always
+    ports:
+      - "8082:8082"
+    environment:
+      - CLOUDAMQP_URL=amqps://nslkctjt:6MkztmExpnZWOgkifKnD4cdEME1ytNUE@jackal.rmq.cloudamqp.com/nslkctjt

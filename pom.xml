@@ -17,7 +17,7 @@
         <java.version>17</java.version>
         <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
         <spring-cloud.version>2022.0.2</spring-cloud.version>
-<!--        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>-->
+        <!--        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>-->
     </properties>
 
     <modules>
@@ -131,6 +131,12 @@
             <artifactId>jackson-datatype-jsr310</artifactId>
             <version>2.14.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-webmvc-core</artifactId>
+            <version>1.7.0</version>
+        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>
@@ -154,4 +160,22 @@
             </snapshots>
         </repository>
     </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>
+                    <from>
+                        <image>eclipse-temurin:17.0.4.1_1-jre</image>
+                    </from>
+                    <to>
+                        <image>registry.hub.docker.com/mmacedoaraujo/${project.artifactId}</image>
+                    </to>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
