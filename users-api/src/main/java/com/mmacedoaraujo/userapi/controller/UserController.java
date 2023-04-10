@@ -3,7 +3,9 @@ package com.mmacedoaraujo.userapi.controller;
 import com.mmacedoaraujo.userapi.config.RabbitMQConfig;
 import com.mmacedoaraujo.userapi.domain.User;
 import com.mmacedoaraujo.userapi.service.serviceimpl.UserServiceImpl;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -38,7 +40,7 @@ public class UserController {
 
     @GetMapping("/paginated")
     @Cacheable("usersPage")
-    public ResponseEntity<Page<User>> returnUsersRegisteredPageable(Pageable pageable) {
+    public ResponseEntity<Page<User>> returnUsersRegisteredPageable(@ParameterObject Pageable pageable) {
         Page<User> usersPage = service.returnAllUsersPageable(pageable);
         return new ResponseEntity<>(usersPage, HttpStatus.OK);
     }

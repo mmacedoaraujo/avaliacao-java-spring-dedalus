@@ -9,17 +9,18 @@ import org.springframework.context.annotation.Configuration;
 public class GatewayConfig {
 
     private static final String USERS_API_URI = "lb://users-api";
+    public static final String EUREKA_URL = "http://localhost:8083";
 
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route("discoveryServer", route -> route.path("/eureka")
                         .filters(filter -> filter.rewritePath("/eureka", "/"))
-                        .uri("http://localhost:8083")
+                        .uri(EUREKA_URL)
                 )
                 .route("discoveryServerStatic", route -> route.path("/eureka/**")
                         .filters(filter -> filter.rewritePath("/eureka/(?<static>.*)", "/eureka/${static}"))
-                        .uri("http://localhost:8083")
+                        .uri(EUREKA_URL)
                 )
                 .route("returnUsersRegistered", route -> route.path("/users")
                         .filters(filter -> filter.rewritePath("/users", "/api/v1/users"))
