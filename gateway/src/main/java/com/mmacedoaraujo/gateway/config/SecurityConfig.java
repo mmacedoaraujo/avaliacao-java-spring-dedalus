@@ -36,9 +36,9 @@ public class SecurityConfig {
     SecurityWebFilterChain securityWebFilterChain(final ServerHttpSecurity http) {
         http.authorizeExchange(exchanges -> {
             exchanges.pathMatchers("/eureka").permitAll()
-                    .pathMatchers("/users").permitAll()
-                    .pathMatchers("/users/paginated").permitAll()
-                    .pathMatchers("/users/**").hasRole("SUPERUSER")
+                    .pathMatchers("/api/v1/users").permitAll()
+                    .pathMatchers("/api/v1/users/paginated").permitAll()
+                    .pathMatchers("/api/v1/users/**").hasRole("SUPERUSER")
                     .anyExchange()
                     .authenticated();
         }).httpBasic(withDefaults()).csrf().disable();
