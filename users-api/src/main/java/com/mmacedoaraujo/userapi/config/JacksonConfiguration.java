@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class JacksonConfiguration {
+
+    //Registering Jackson module to avoid conflict when RabbitMQConfig messageconverter deal with LocalDate
     @Bean
     public ObjectMapper objectMapper() {
         return JsonMapper.builder()

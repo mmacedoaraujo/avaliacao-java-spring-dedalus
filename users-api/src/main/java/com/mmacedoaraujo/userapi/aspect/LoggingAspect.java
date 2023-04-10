@@ -15,17 +15,19 @@ import java.util.Arrays;
 @Slf4j
 public class LoggingAspect {
 
-
+    //Defining pointcut for controller
     @Pointcut("execution(* com.mmacedoaraujo.userapi.controller.UserController..*(..))")
     protected void loggingOperationController() {
 
     }
 
+    //Defining pointcut for service
     @Pointcut("execution(* com.mmacedoaraujo.userapi.service.serviceimpl.UserServiceImpl..*(..))")
     protected void loggingOperationService() {
 
     }
 
+    //logging methods before they run at controller layer
     @Before("loggingOperationController()")
     @Order(1)
     public void logger(JoinPoint joinPoint) {
@@ -35,6 +37,7 @@ public class LoggingAspect {
         log.info("Target class : " + joinPoint.getTarget().getClass().getName());
     }
 
+    //logging return of methods at controller layer
     @AfterReturning(pointcut = "loggingOperationController()", returning = "result")
     @Order(2)
     public void logAfter(JoinPoint joinPoint, Object result) {
@@ -42,6 +45,7 @@ public class LoggingAspect {
         log.info("Return value: " + result);
     }
 
+    //logging exceptions at service layer
     @AfterThrowing(value = "loggingOperationService()", throwing = "e")
     @Order(3)
     public void logAfterThrowing(JoinPoint joinPoint, Throwable e) {
@@ -49,6 +53,7 @@ public class LoggingAspect {
         log.error("Cause " + e.getCause());
     }
 
+    //logging methods at service layer
     @Around("loggingOperationService()")
     @Order(4)
     public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
