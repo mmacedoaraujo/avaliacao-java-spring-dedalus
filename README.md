@@ -54,13 +54,21 @@ http://localhost:8080
 
 ### Endpoints da aplicação
 
-Para acessar o swagger:
+Para acessar o Swagger:
 
-## Como rodar o projeto
-
-Endpoints:
+```sh
+http://localhost:8080/user-api-swagger
+```
 
 ![](https://user-images.githubusercontent.com/103322548/230923062-20423445-75f5-4029-b4ca-b7fd0192e54a.png)
+
+Para acessar o dashboard Eureka:
+
+```sh
+http://localhost:8080/eureka
+```
+
+![](https://user-images.githubusercontent.com/103322548/230933506-e3afd7f1-6ec8-461a-a959-262dc1549705.png)
 
 Alguns endpoints irão necessitar de autenticação básica, basta usar:
 
