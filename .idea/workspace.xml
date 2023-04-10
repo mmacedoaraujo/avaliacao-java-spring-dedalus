@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9e4dab0-85ef-4dde-897f-9f5b62fa2060" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/mmacedoaraujo/gateway/config/GatewayConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/mmacedoaraujo/gateway/config/GatewayConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users-api/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/users-api/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users-api/src/main/java/com/mmacedoaraujo/userapi/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/users-api/src/main/java/com/mmacedoaraujo/userapi/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
