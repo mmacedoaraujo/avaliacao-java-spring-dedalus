@@ -15,7 +15,9 @@ spring:
     driverClassName: org.h2.Driver
   rabbitmq:
     addresses: ${CLOUDAMQP_URL}
-
+springdoc:
+  swagger-ui:
+    path: /user-api-swagger
 eureka:
   client:
     service-url:
