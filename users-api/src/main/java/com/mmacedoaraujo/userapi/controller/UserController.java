@@ -32,6 +32,7 @@ public class UserController {
     private final RabbitTemplate template;
 
     @GetMapping("/hello")
+    @Operation(summary = "Simply return 'Hello World!'")
     public ResponseEntity<String> returnsHello() {
         return new ResponseEntity<>("Hello World!", HttpStatus.OK);
     }

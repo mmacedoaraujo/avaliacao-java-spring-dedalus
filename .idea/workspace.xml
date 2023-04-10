@@ -52,7 +52,7 @@
       <recent name="C:\Workspace\untitled\avaliacao-java-spring-dedalus\users-api-rabbitmq-consumer\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserControllerTest">
+  <component name="RunManager" selected="Application.UserApiRabbitmqConsumerApplication">
     <configuration name="DiscoveryApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.mmacedoaraujo.discovery.DiscoveryApplication" />
       <module name="discovery" />
@@ -88,6 +88,22 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.mmacedoaraujo.userapi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserApiRabbitmqConsumerApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <envs>
+        <env name="CLOUDAMQP_URL" value="amqps://nslkctjt:6MkztmExpnZWOgkifKnD4cdEME1ytNUE@jackal.rmq.cloudamqp.com/nslkctjt" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="com.mmacedoaraujo.userapirabbitmqconsumer.UserApiRabbitmqConsumerApplication" />
+      <module name="user-api-rabbitmq-consumer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mmacedoaraujo.userapirabbitmqconsumer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -133,10 +149,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserControllerTest" />
         <item itemvalue="Application.UserApiApplication" />
         <item itemvalue="Application.GatewayApplication" />
         <item itemvalue="Application.DiscoveryApplication" />
+        <item itemvalue="JUnit.UserControllerTest" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       </list>
     </recent_temporary>
