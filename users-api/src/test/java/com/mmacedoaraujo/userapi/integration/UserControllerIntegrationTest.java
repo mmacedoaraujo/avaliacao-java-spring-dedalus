@@ -4,6 +4,7 @@ import com.mmacedoaraujo.userapi.domain.User;
 import com.mmacedoaraujo.userapi.repository.UserRepository;
 import com.mmacedoaraujo.userapi.util.UserCreator;
 import com.mmacedoaraujo.userapi.wrapper.PageableResponse;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -69,6 +70,7 @@ public class UserControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName(value = "returnsUsersRegistered() returns a list of users when successfull ")
     void returnUsersRegistered() {
         User userForComparison = UserCreator.createUserWithId("Teste", "Integração");
         repository.save(UserCreator.createUserWithId("Teste", "Integração"));
@@ -89,6 +91,7 @@ public class UserControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName(value = "returnUsersRegisteredPageable() returns a list of users inside a page object when successfull ")
     void returnUsersRegisteredPageable() {
         User userForComparison = UserCreator.createUserWithId("Teste", "Integração");
         repository.save(UserCreator.createUserWithId("Teste", "Integração"));
@@ -108,6 +111,7 @@ public class UserControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName(value = "returnUserById() returns a valid user when successfull ")
     void returnUserById() {
         User userForComparison = UserCreator.createUserWithId("Teste", "Integração");
         repository.save(UserCreator.createUserWithId("Teste", "Integração"));
@@ -126,6 +130,7 @@ public class UserControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName(value = "removeUser() deletes a user when successfull ")
     void removeUser() {
         User userAtDatabase = repository.save(UserCreator.createUserWithId("Teste", "Integração"));
 
@@ -140,6 +145,7 @@ public class UserControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName(value = "addNewUser() returns a valid user when successfull ")
     void addNewUser() {
         User userForComparison = UserCreator.createUserWithId("Teste", "Integração");
 
@@ -155,6 +161,7 @@ public class UserControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName(value = "updateUserData() updates a valid user when successfull ")
     void updateUser() {
         User userWithModifications = UserCreator.createUserWithId("Integration", "Test");
         repository.save(UserCreator.createUserWithId("Teste", "Integração"));

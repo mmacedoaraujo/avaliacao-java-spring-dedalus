@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9e4dab0-85ef-4dde-897f-9f5b62fa2060" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users-api/src/main/java/com/mmacedoaraujo/userapi/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/users-api/src/main/java/com/mmacedoaraujo/userapi/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users-api/src/test/java/com/mmacedoaraujo/userapi/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/users-api/src/test/java/com/mmacedoaraujo/userapi/controller/UserControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +52,7 @@
       <recent name="C:\Workspace\untitled\avaliacao-java-spring-dedalus\users-api-rabbitmq-consumer\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UserApiApplication">
+  <component name="RunManager" selected="JUnit.UserControllerTest">
     <configuration name="DiscoveryApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.mmacedoaraujo.discovery.DiscoveryApplication" />
       <module name="discovery" />
@@ -96,18 +95,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserApiRabbitmqConsumerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <envs>
-        <env name="CLOUDAMQP_URL" value="amqps://nslkctjt:6MkztmExpnZWOgkifKnD4cdEME1ytNUE@jackal.rmq.cloudamqp.com/nslkctjt" />
-      </envs>
-      <option name="MAIN_CLASS_NAME" value="com.mmacedoaraujo.userapirabbitmqconsumer.UserApiRabbitmqConsumerApplication" />
-      <module name="user-api-rabbitmq-consumer" />
+    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="user-api" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.mmacedoaraujo.userapirabbitmqconsumer.*" />
+          <option name="PATTERN" value="com.mmacedoaraujo.userapi.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.mmacedoaraujo.userapi.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.mmacedoaraujo.userapi.controller.UserControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -135,11 +133,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserControllerTest" />
         <item itemvalue="Application.UserApiApplication" />
         <item itemvalue="Application.GatewayApplication" />
         <item itemvalue="Application.DiscoveryApplication" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-        <item itemvalue="Application.UserApiRabbitmqConsumerApplication" />
       </list>
     </recent_temporary>
   </component>
