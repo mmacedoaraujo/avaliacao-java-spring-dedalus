@@ -3,6 +3,7 @@ package com.mmacedoaraujo.userapi.controller;
 import com.mmacedoaraujo.userapi.domain.User;
 import com.mmacedoaraujo.userapi.service.serviceimpl.UserServiceImpl;
 import com.mmacedoaraujo.userapi.util.UserCreator;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentMatchers;
@@ -44,6 +45,7 @@ class UserControllerTest {
     }
 
     @Test
+    @DisplayName(value = "returnsUsersRegistered() returns a list of users when successfull ")
     void returnUsersRegistered() {
         List<User> listOfUsers = UserCreator.createListOfUsers();
 
@@ -60,6 +62,7 @@ class UserControllerTest {
     }
 
     @Test
+    @DisplayName(value = "returnUsersRegisteredPageable() returns a list of users inside a page object when successfull ")
     void returnUsersRegisteredPageable() {
 
         List<User> listOfUsers = UserCreator.createListOfUsers();
@@ -79,6 +82,7 @@ class UserControllerTest {
     }
 
     @Test
+    @DisplayName(value = "returnUserById() returns a valid user when successfull ")
     void returnUserById() {
         User user = UserCreator.createUserWithId("Marcos", "Teste");
 
@@ -95,6 +99,7 @@ class UserControllerTest {
     }
 
     @Test
+    @DisplayName(value = "addNewUser() returns a valid user when successfull ")
     void addNewUser() {
         User newUser = UserCreator.createUserWithId("Teste", "Teste");
 
@@ -111,6 +116,7 @@ class UserControllerTest {
     }
 
     @Test
+    @DisplayName(value = "updateUserData() updates a valid user when successfull ")
     void updateUserData() {
         User user = UserCreator.createUserWithId("Teste", "Teste");
 
@@ -121,6 +127,7 @@ class UserControllerTest {
     }
 
     @Test
+    @DisplayName(value = "removeUser() deletes a user when successfull ")
     void removeUser() {
         User user = UserCreator.createUserWithId("Teste", "Teste");
 

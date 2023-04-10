@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 
 import java.util.List;
 
+//This class is basically a wrapper to use when receiving a pageable response at a restTemplate parameterizedTypeReference
 @Getter
 @Setter
 public class PageableResponse<T> extends PageImpl<T> {
