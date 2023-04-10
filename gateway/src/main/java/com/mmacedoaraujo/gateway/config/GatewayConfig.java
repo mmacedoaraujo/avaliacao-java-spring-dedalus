@@ -21,7 +21,7 @@ public class GatewayConfig {
                         .filters(filter -> filter.rewritePath("/v3/api-docs/(?<static>.*)", "/v3/api-docs/${static}"))
                         .uri(USERS_API_URI)
                 )
-                .route("swaggerUI", route -> route.path("/swagger-ui/index.html")
+                .route("swaggerUI", route -> route.path("/user-api-swagger")
                         .uri(USERS_API_URI)
                 )
                 .route("swaggerUIStatic", route -> route.path("/swagger-ui/**")

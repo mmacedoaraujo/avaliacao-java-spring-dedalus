@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9e4dab0-85ef-4dde-897f-9f5b62fa2060" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/mmacedoaraujo/gateway/config/GatewayConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/mmacedoaraujo/gateway/config/GatewayConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users-api/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/users-api/src/main/resources/application.yaml" afterDir="false" />
     </list>
@@ -54,7 +53,7 @@
       <recent name="C:\Workspace\untitled\avaliacao-java-spring-dedalus\users-api-rabbitmq-consumer\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.GatewayApplication">
+  <component name="RunManager" selected="Application.UserApiApplication">
     <configuration name="DiscoveryApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.mmacedoaraujo.discovery.DiscoveryApplication" />
       <module name="discovery" />
@@ -136,8 +135,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GatewayApplication" />
         <item itemvalue="Application.UserApiApplication" />
+        <item itemvalue="Application.GatewayApplication" />
         <item itemvalue="Application.DiscoveryApplication" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Application.UserApiRabbitmqConsumerApplication" />
