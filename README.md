@@ -111,6 +111,11 @@ Implementação do logging ao acionar métodos na camada de serviços:
 
 ![](https://user-images.githubusercontent.com/103322548/230944342-5cceb3c2-399e-4ab2-b4c4-84ff97d51c8d.png)
 
+## Imagens dos serviços no DockerHub
+
+<a href="https://hub.docker.com/repositories/mmacedoaraujo">Link para meu repositório no DockerHub</a>
+
+![](https://user-images.githubusercontent.com/103322548/230948421-cb4bc4bd-73f7-423f-a037-dc70a3899950.png)
 
 ## Tecnologias utilizadas
 
